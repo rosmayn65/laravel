@@ -1,5 +1,5 @@
 <?php
-
+use App\Post;   
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -119,4 +119,52 @@ Route::get('tni/{nama?}/{berat?}/{umur?}', function($nama=null, $bb=null, $umur=
             echo "Naikkan Berat Badan Anda";
         }
     }
+});
+
+//Akses Model Post
+Route::get('/testmodel', function()
+{
+    $query = App\Post::all();
+    return $query;
+});
+
+//Akses Model Id
+Route::get('testmodel1', function()
+{
+    $query = App\Post::find(1);
+    return $query;
+});
+
+//Akses Model Title
+Route::get('testmodel2', function()
+{
+    $query = App\Post::where('title','like','%cepat nikah%')->get();
+    return $query;
+});
+
+//Akses Mengubah Record (hapus semua isi function)
+Route::get('testmodel3', function()
+{
+    $query = $post = App\Post::find(1);
+             $post->title = "Ciri Keluarga Sakinah";
+             $post->save();
+    return $post;
+});
+
+//Akses Menghapus Record (hapus semua isi function)
+Route::get('testmodel4', function()
+{
+    $post = App\Post::find(1);
+    $post->delete();
+    // check data di database
+});
+
+//Akses Menambah Record (hapus semua isi function)
+Route::get('testmodel5', function()
+{
+    $post = new App\Post;
+    $post->title = "7 Amalan Pembuka Jodoh";
+    $post->content = "shalat malam, sedekah, puasa sunah, silaturahmi, senyum, doa, tobat";
+    $post->save();
+    return $post;
 });
