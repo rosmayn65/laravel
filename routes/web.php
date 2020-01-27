@@ -168,3 +168,35 @@ Route::get('testmodel5', function()
     $post->save();
     return $post;
 });
+
+//Akses Menampilkan 3 Data OnlineShop
+Route::get('onlineshop', function()
+{
+    $data = App\onlineshop::all()
+    ->take(3);
+    return $data;
+});
+
+//Akses 
+Route::get('onlineshop/select', function()
+{
+    $data = App\onlineshop::select('namaProduk','jenisProduk', 'bahanProduk', 'varianWarna', 'ukuranProduk', 'kuantitasProduk', 'hargaProduk')->first();
+    return $data;
+});
+
+//Akses 
+Route::get('onlineshop/{namaProduk}/{jenisProduk}{bahanProduk}/{varianWarna}\{ukuranProduk}/{kuantitasProduk}/{hargaProduk}', function($namaProduk,$jenisProduk,$bahanProduk,$varianWarna,$ukuranProduk,$kuantitasProduk,$hargaProduk){
+{
+    $data = new App\onlineshop;
+    $onlineshop->namaProduk = $namaProduk;
+    $onlineshop->jenisProduk = $njenisProduk;
+    $onlineshop->namaProduk = $namaProduk;
+    $onlineshop->namaProduk = $namaProduk;
+    $onlineshop->namaProduk = $namaProduk;
+    $onlineshop->namaProduk = $namaProduk;
+    $onlineshop->namaProduk = $namaProduk;
+    $onlineshop->namaProduk = $namaProduk;
+    $onlineshop->save();
+    return $data;
+}
+});
