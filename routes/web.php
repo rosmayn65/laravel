@@ -200,3 +200,14 @@ Route::get('onlineshop/{namaProduk}/{jenisProduk}{bahanProduk}/{varianWarna}\{uk
     return $data;
 }
 });
+
+//controller
+Route::get('latihan','LatihanController@halo');
+Route::get('latihan-pertambahan','LatihanController@pertambahan');
+Route::get('latihan-pengurangan','LatihanController@pengurangan');
+Route::get('latihan-perkalian','LatihanController@perkalian');
+Route::get('latihan-pembagian','LatihanController@pembagian');
+Route::get('latihan-tambah/{a?}/{b?}','LatihanController@tambah');
+Route::get('/data-1','LatihanController@loop');
+Route::get('/data-2','LatihanController@loop2');
+Route::get('/data-3','LatihanController@loop3');
