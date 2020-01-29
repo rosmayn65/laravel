@@ -103,6 +103,7 @@ public function loop3()
                  'Jenis Kelamin : '.$key['Jenis_Kelamin'].'<br>'.
                  'Jabatan : '.$key['Jabatan'].'<br>'.
                  'Jam Kerja : '.$key['Jam_Kerja'].'<br>';
+            //jabatan
             if ($key['Jabatan'] == "Manager") {
                 $gaji = 5000000;
                 echo 'Gaji : Rp. '.$gaji.'<br>';
@@ -115,6 +116,7 @@ public function loop3()
                 $gaji = 2500000;
                 echo 'Gaji : Rp. '.$gaji.'<br>';
             }
+            //jamkerja
             if ($key['Jam_Kerja'] >= 250) {
                 $bonus = $gaji*10/100;
                 echo 'Bonus : '.$bonus.'<br>';
@@ -130,4 +132,6 @@ public function loop3()
             echo 'Total Gaji : Rp. '.$gajitotal.'<hr>';
         }
     }
+
+    
 }
