@@ -19,8 +19,7 @@ class TabunganController extends Controller
         return $tabungan;
     }
 
-    public function store($nis,$nama,$kelas,$jml)
-    {
+    public function store($nis=null, $nama=null, $kelas=null, $jml=null){
         $tabungan = new Tabungan();
         $tabungan->nis = $nis;
         $tabungan->nama = $nama;
@@ -30,9 +29,8 @@ class TabunganController extends Controller
         return $tabungan;
     }
 
-    public function edit($id,$nis,$nama,$kelas,$jml)
-    {
-        $tabungan = new Tabungan();
+    public function edit($id=null, $nis=null, $nama=null, $kelas=null, $jml=null){
+        $tabungan = Tabungan::findOrFail($id);
         $tabungan->nis = $nis;
         $tabungan->nama = $nama;
         $tabungan->kelas = $kelas;
@@ -41,10 +39,11 @@ class TabunganController extends Controller
         return $tabungan;
     }
 
-    public function delete($id,$nis,$nama,$kelas,$jml)
-    {
-        $tabungan = Tabungan::find($id);
-        $tabungan = $delete($nis,$nama,$kelas,$jml);
+    public function delete($id){
+        $tabungan = Tabungan::findOrFail($id);
+        $tabungan->delete();
         return $tabungan;
     }
 }
+
+

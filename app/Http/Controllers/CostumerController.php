@@ -6,44 +6,47 @@ use Illuminate\Http\Request;
 
 class CostumerController extends Controller
 {
-    public function index()
-    {
-        $costumer = \App\Costumer\Costumer::all();
-        return $costumer;
+    public function index(){
+        // $tabungan = \App\Tabungan::all();
+        $customer = Customer::all();
+        return $customer;
     }
 
-    public function show($id)
-    {
-        $costumer = \App\Costumer\Costumer::find($id);
-        return $costumer;
+    public function show($id){
+        // $tabungan = \App\Tabungan::findOrFail($id);
+        $customer = Customer::findOrFail($id);
+        return $customer;
     }
 
-    public function store($code,$nama,$email,$country,$city,$address,$contact)
-    {
-        $costumer = new Costumer();
-        $costumer->nis = $nis;
-        $costumer->nama = $nama;
-        $costumer->kelas = $kelas;
-        $costumer->jml = $jml;
-        $costumer->save();
-        return $costumer;
+    public function store($code_customer = null, $name = null, $email = null, $country = null, $city = null, $address = null, $contact_number = null){
+        $customer = new Customer();
+        $customer->code_customer = $code_customer;
+        $customer->name = $name;
+        $customer->email = $email;
+        $customer->country = $country;
+        $customer->city = $city;
+        $customer->address = $address;
+        $customer->contact_number = $contact_number;
+        $customer->save();
+        return $customer;
     }
 
-    public function edit($id,$nis,$nama,$kelas,$jml)
-    {
-        $costumer = new Costumer();
-        $costumer->nis = $nis;
-        $costumer->nama = $nama;
-        $costumer->kelas = $kelas;
-        $costumer->jml = $jml;
-        $costumer->save();
-        return $costumer;
+    public function edit($id = null, $code_customer = null, $name = null, $email = null, $country = null, $city = null, $address = null, $contact_number = null){
+        $customer = Customer::findOrFail($id);
+        $customer->code_customer = $code_customer;
+        $customer->name = $name;
+        $customer->email = $email;
+        $customer->country = $country;
+        $customer->city = $city;
+        $customer->address = $address;
+        $customer->contact_number = $contact_number;
+        $customer->save();
+        return $customer;
     }
 
-    public function delete($id,$nis,$nama,$kelas,$jml)
-    {
-        $costumer = Costumer::find($id);
-        $costumer = $delete($nis,$nama,$kelas,$jml);
-        return $costumer;
+    public function delete($id){
+        $customer = Customer::findOrFail($id);
+        $customer->delete();
+        return $customer;
     }
 }

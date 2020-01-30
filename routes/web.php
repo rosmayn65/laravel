@@ -213,16 +213,21 @@ Route::get('/data-2','LatihanController@loop2');
 Route::get('/data-3','LatihanController@loop3');
 
 
-//Route Tabungan
+//Route CRUD Tabungan
 Route::get('tabungan','TabunganController@index');
 Route::get('tabungan/{id}','TabunganController@show');
 Route::get('tabungan-tambah/{nis}/{nama}/{kelas}/{jml}','TabunganController@store');
 Route::get('tabungan-edit/{id?}/{nis}/{nama}/{kelas}/{jml}','TabunganController@edit');
 Route::get('tabungan-delete/{id?}/{nis}/{nama}/{kelas}/{jml}','TabunganController@delete');
 
-//Route Costumer
-Route::get('costumer','CostumerController@index');
-Route::get('costumer/{id}','CostumerController@show');
-Route::get('costumer-tambah/{nis}/{nama}/{kelas}/{jml}','CostumerController@store');
-Route::get('costumer-edit/{id?}/{nis}/{nama}/{kelas}/{jml}','CostumerController@edit');
-Route::get('costumer-delete/{id?}/{nis}/{nama}/{kelas}/{jml}','CostumerController@delete');
+//Route CRUD Costumer
+Route::get('customer','CustomerController@index');
+Route::get('customer/{id}','CustomerController@show');
+Route::get('customer-tambah/{code}/{nama}/{email}/{country}/{city}/{address}/{contact}','CustomerController@store');
+Route::get('customer-edit/{id}/{code}/{nama}/{email}/{country}/{city}/{address}/{contact}','CustomerController@edit');
+Route::get('customer-hapus/{id}','CustomerController@delete');
+
+//Route Passing Data
+Route::get('pass','PracticeController@pass');
+Route::get('pass1','PracticeController@pass1');
+Route::get('pass-tabungan','PracticeController@pass2');
