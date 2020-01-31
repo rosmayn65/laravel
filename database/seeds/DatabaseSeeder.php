@@ -15,7 +15,9 @@ class DatabaseSeeder extends Seeder
         //     Post::class,
         //     SiswaSeeder::class
         // ]);
-        factory(App\Tabungan::class, 100)->create();
-        factory(App\Customerr::class, 1000)->create();
+        //factory(App\Tabungan::class, 100)->create();
+        //factory(App\Customerr::class, 1000)->create();
+        $this->call(MinimarketTableSeeder::class);
+
     }
 }
