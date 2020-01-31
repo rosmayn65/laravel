@@ -8,11 +8,9 @@
 </head>
 <body>
     <center>Daftar Tabungan</center>
-    @foreach($tabungan as $data)
-    Nama : {{ $data->$nama }}<br>
-    NIS : {{ $data->$nis }}<br>
-
+    @foreach ($tabungan as $data)
+        Nama : {{ $data->nama}}<br>
+        Nis : {{ $data->nis}}<hr>
     @endforeach
-    
 </body>
 </html>
